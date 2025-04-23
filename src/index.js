@@ -1,15 +1,17 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const productRoutes = require('./product/products.routes');
+const userRouter = require('./user/user.router');
 const { logRequest } = require('./middleware');
 const { errorResponder } = require('./error.middleware');
 
 const app = express();
 const PORT = 3000;
 
+app.use(bodyParser.json());
 app.use(logRequest);
-
 app.use(productRoutes);
-
+app.use(userRouter);
 app.use(errorResponder);
 
 app.listen(PORT, () => {
