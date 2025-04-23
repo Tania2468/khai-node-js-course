@@ -1,5 +1,5 @@
 const express = require('express');
-const productRoutes = require('./products.routes');
+const productRoutes = require('./product/products.routes');
 const { logRequest } = require('./middleware');
 const { errorResponder } = require('./error.middleware');
 
